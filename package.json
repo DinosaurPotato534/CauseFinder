@@ -1,6 +1,11 @@
 {
   "dependencies": {
+    "@react-google-maps/api": "^2.19.2",
     "bootstrap": "^5.3.1",
+    "google-maps-react": "^2.0.6",
     "react-places-autocomplete": "^7.3.0"
+  },
+  "devDependencies": {
+    "@types/mapbox-gl": "^2.7.13"
   }
 }
