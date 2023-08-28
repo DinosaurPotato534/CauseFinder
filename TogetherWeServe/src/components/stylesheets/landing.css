@@ -1,0 +1,22 @@
+body {
+    overflow-x: hidden;
+}
+
+.custom-container {
+    max-height: 100vh;
+    max-width: 100vw;
+}
+
+.heading {
+    font-family: MPlus;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 769px) {
+    .mobile-search {
+        margin-top: 20px;
+    }
+}

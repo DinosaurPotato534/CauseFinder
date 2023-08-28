@@ -1,0 +1,25 @@
+.title {
+    font-family: MPlus;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.header {
+    font-family: MPlus;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 769px) {
+    .header {
+        display: none;
+    }
+
+    .title {
+        font-size: 30px
+    }
+}
