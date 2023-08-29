@@ -1,0 +1,66 @@
+.label {
+    color: white;
+}
+
+.heading {
+    font-family: MPlus;
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+}
+
+.subheading {
+    font-family: MPlus;
+    color: white;
+    text-decoration: none;
+}
+
+.map {
+    height: auto;
+    width: auto;
+}
+
+/* Add white border and background color to form */
+.custom-form {
+    border: 1px solid white;
+    background-color: #121212; /* Change this to your background color */
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style input fields */
+  .custom-input {
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    color: rgb(255, 255, 255); /* Change text color if needed */
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .custom-input:focus {
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+  }
+  
+  /* Style submit button */
+  .custom-btn {
+    border: none;
+    border-radius: 0;
+    background-color: #007bff; /* Change button color if needed */
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .custom-btn:hover {
+    background-color: #0056b3; /* Change button hover color if needed */
+  }
+
+  .custom-input::placeholder {
+    color: #ffffff;
+  }
