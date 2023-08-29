@@ -13,3 +13,13 @@
     font-weight: bold;
     margin-top: 20px;
 }
+
+@media screen and (max-width: 769px) {
+    .header {
+        display: none;
+    }
+
+    .title {
+        font-size: 30px
+    }
+}
