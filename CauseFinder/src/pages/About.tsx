@@ -30,11 +30,12 @@ function About() {
                 I made this website as a demo. The predominant goal of this
                 website was to show the feasibility of this unique solution for
                 non-profits. As a high schooler, with all my responsibilities, I
-                don't think I could do this concept justice.
+                don't think I could do this concept justice alone.
                 <br />
                 <br />
-                My Goal for this project is to raise awareness about the issue
-                of recognition for local non-profits.
+                My Goal for this project is not to continue it long term, but to
+                raise awareness about the issue of recognition for local
+                non-profits.
                 <br />
                 <br />
                 My hope is that someone will develop a similar or better
