@@ -1,4 +1,8 @@
-body {
+.image {
+    width: 30vw;
+  }
+
+  body {
     overflow-x: hidden;
     background-color: #121212;
   }
@@ -31,7 +35,6 @@ body {
   .paragraph-1 {
     text-align: center;
     color: rgb(77, 75, 75);
-    margin-right: 30px;
   }
   
   /* Media query for mobile screens */
@@ -49,3 +52,16 @@ body {
         margin: auto;
     }
   }
+
+  .title1 {
+    font-family: MPlus;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.hr {
+    color: white;
+}

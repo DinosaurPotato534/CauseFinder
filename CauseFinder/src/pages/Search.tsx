@@ -2,7 +2,7 @@ import "../components/stylesheets/landing.css";
 import Header from "../components/Header";
 import Form from "../components/Form";
 
-function Landing() {
+function Search() {
   return (
     <div>
       <Header />
@@ -18,14 +18,8 @@ function Landing() {
           </div>
         </div>
       </div>
-
-      <div className="custom-container">
-        <div className="container">
-          <div className="row"></div>
-        </div>
-      </div>
     </div>
   );
 }
 
-export default Landing;
+export default Search;

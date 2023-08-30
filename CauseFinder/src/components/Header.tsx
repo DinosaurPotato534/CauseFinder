@@ -8,6 +8,21 @@ function Header() {
           <div className="col">
             <h1 className="title">CauseFinder</h1>
           </div>
+          <div className="col-md-auto">
+            <a href="/">
+              <p className="header">Home</p>
+            </a>
+          </div>
+          <div className="col-md-auto">
+            <a href="/about">
+              <p className="header">About</p>
+            </a>
+          </div>
+          <div className="col-md-auto">
+            <a href="/search">
+              <p className="header">Search</p>
+            </a>
+          </div>
         </div>
       </div>
       <hr />

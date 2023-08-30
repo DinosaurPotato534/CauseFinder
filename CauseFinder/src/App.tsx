@@ -1,15 +1,19 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./pages/Landing";
-
-const App: React.FC = () => {
+import Landing from "./pages/Landing";
+import Search from "./pages/Search.js";
+import About from "./pages/About.js";
+import "../../node_modules/bootstrap/dist/css/bootstrap.css";
+import "../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" Component={Home} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;

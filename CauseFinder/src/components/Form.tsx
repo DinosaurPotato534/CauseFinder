@@ -107,7 +107,7 @@ const Form = () => {
           Submit
         </button>
       </form>
-      <hr />
+      <hr className="hr" />
       <div className="container">
         <div className="row">
           <div className="col-lg-2">
