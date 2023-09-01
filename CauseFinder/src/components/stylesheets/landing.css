@@ -1,10 +1,13 @@
+
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@700&display=swap');
+
 body {
     overflow-x: hidden;
     background-color: #121212;
   }
   
   .custom-container {
-    max-width: 100vw;
+    min-height: 100vh;
   }
   
   .heading1 {
@@ -48,4 +51,88 @@ body {
     .paragraph-1 {
         margin: auto;
     }
+  }
+
+  .heading2 {
+    font-family: 'M PLUS 1 Code', monospace;
+    color: white;
+    font-size: 64px;
+    font-weight: 700;
+    margin-top: 20px;
+    text-align: left;
+  }
+
+  .heading-list {
+    font-family: 'M PLUS 1 Code', monospace;
+    color: white;
+    font-size: 50px;
+    font-weight: 700;
+    margin-top: 20px;
+    text-align: left;
+  }
+
+  .heading2-1 {
+    text-decoration-line: underline;
+  }
+
+  .heading3 {
+    font-family: 'M PLUS 1 Code', monospace;
+    background: linear-gradient(180deg, #0500FF 0%, #4800FF 17.71%, #7000FF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    font-size: 64px;
+    font-weight: 700;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .heading2-3 {
+    font-family: 'M PLUS 1 Code', monospace;
+    color: white;
+    font-size: 64px;
+    font-weight: 700;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .heading4 {
+    background: linear-gradient(180deg, #00FF1A 30.71%, #00FF1A 44.27%, rgba(0, 117, 255, 0.00) 99.99%, #0094FF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+  }
+
+  .img {
+    flex-shrink: 0;
+  }
+
+  .subtitle1 {
+    font-family: MPlus;
+    color: white;
+    text-align: center;
+  }
+
+  .button {
+    height: fit-content;
+    width: fit-content;
+    flex-shrink: 0;
+    border-radius: 34px;
+    background: #1E1E1E;
+    margin: auto;
+  }
+
+  .button-text {
+    font-family: MPlus;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .footer {
+    color: #363636; 
+    font-family: MPlus;
+    font-size: 15px; 
+    text-align: center;
   }

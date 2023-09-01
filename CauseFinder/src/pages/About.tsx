@@ -23,7 +23,7 @@ function About() {
                 className="image"
                 alt="K9s for Warriors"
               />
-              <p className="paragraph-1">K9's for Warriors</p>
+              <p className="paragraph-1">K9's for Warriors*</p>
             </div>
             <div className="col-md-6 order-md-1">
               <p className="paragraph1">
@@ -52,25 +52,29 @@ function About() {
           </div>
           <div className="row">
             <div className="col-md-6 order-md-2">
-              <img
-                src="https://sustainatrek.netlify.app/assets/images/sveriges.jpg"
-                className="image"
-                alt="Sveriges Hembygdsforbund"
-              />
-              <p className="paragraph-1">Sveriges Hembygdsforbund</p>
+              <div className="center">
+                <img
+                  src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/553/273/datas/gallery.jpg"
+                  className="image"
+                  alt="SustainaTrek"
+                />
+                <p className="paragraph-1">SustainaTrek</p>
+              </div>
             </div>
             <div className="col-md-6 order-md-1">
               <p className="paragraph1">
-                One of my inspirations for this project was a what I made in a
+                One of my inspirations for this project was someone I met in a
                 previous Hackathon.
                 <br />
                 <br />
                 In a previous Hackathon, I made a project entitled
                 "SustainaTrek."
                 <br />
+                <br />
                 During the development of the aforementioned project, one of my
                 teammates told me about how she interned at a local non-profit
-                in Sweden, and how they were struggling with outreach.
+                in Sweden, and how they were struggling with outreach and were
+                running out of funding to continue.
                 <br />
                 <br />I was devastated to find out about this, especially with
                 all the good they did for their community.
@@ -82,6 +86,11 @@ function About() {
             </div>
           </div>
         </div>
+        <p className="footer">
+          *Beaches Go Green, Birdies for Warriors, Wounded Warrior Project and
+          any other shown groups are 501(c) Non-Profit Groups and are in no way
+          affiliated with this demo.*
+        </p>
       </div>
     </div>
   );

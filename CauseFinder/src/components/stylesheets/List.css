@@ -1,0 +1,63 @@
+/* Add white border and background color to form */
+.custom-form {
+    border: 1px solid white;
+    background-color: #121212; /* Change this to your background color */
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style input fields */
+  .form-control {
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    color: #ffffff;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-control:focus {
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    color: #ffffff;
+  }
+  
+  /* Style submit button */
+  .custom-btn {
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff; /* Change button color if needed */
+    color: #ffffff;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .custom-btn:hover {
+    background-color: #0056b3; /* Change button hover color if needed */
+  }
+  
+  /* Style error messages */
+  .error-message {
+    color: #ff6b6b;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  /* Add any additional styles you want */
+  
+  .form-label {
+    font-family: MPlus;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .success-message {
+    color: green;
+    font-size: 14px;
+    margin-top: 10px;
+  }

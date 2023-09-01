@@ -1,29 +1,29 @@
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-import { getFirestore, doc, getDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  collection,
+  getDocs,
+} from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import "./stylesheets/form.css";
 
 const firebaseConfig = {
   // Your Firebase config here
-
-  apiKey: "AIzaSyBLK_UaPw2eg1hfwq5ySnW06A_XYyE7LwU",
-
-  authDomain: "togetherweserve-f5686.firebaseapp.com",
-
-  projectId: "togetherweserve-f5686",
-
-  storageBucket: "togetherweserve-f5686.appspot.com",
-
-  messagingSenderId: "789907691670",
-
-  appId: "1:789907691670:web:23bc612967e7732b5a0ab7",
-
-  measurementId: "G-GQ7N4NC4WJ",
+  // ...
 };
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+
+const fetchValidZipCodes = async () => {
+  const dataCollection = collection(db, "data");
+  const dataSnapshot = await getDocs(dataCollection);
+  const validZipCodes = dataSnapshot.docs.map((doc) => doc.id);
+  return validZipCodes;
+};
 
 const Form = () => {
   const [zipCode, setZipCode] = useState("");
@@ -34,11 +34,37 @@ const Form = () => {
   const [subheadings, setSubheadings] = useState<string[]>([]);
   const [links, setLinks] = useState<string[]>([]);
   const [markers, setMarkers] = useState<any[]>([]);
+  const [validZipCodes, setValidZipCodes] = useState<string[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [noResults, setNoResults] = useState(false);
 
-  const validZipCodes = ["32081", "32082"];
+  useEffect(() => {
+    async function loadValidZipCodes() {
+      try {
+        const zipCodes = await fetchValidZipCodes();
+        setValidZipCodes(zipCodes);
+      } catch (error) {
+        console.error("Error fetching valid zip codes:", error);
+      }
+    }
+
+    loadValidZipCodes();
+  }, []);
 
   const handleZipCodeChange = (e: ChangeEvent<HTMLInputElement>) => {
     setZipCode(e.target.value);
+    setCurrentIndex(0);
+    setNoResults(false); // Reset noResults state when changing zip code
+  };
+
+  const handleNextResults = () => {
+    const nextIndex = currentIndex + 3;
+    setCurrentIndex(nextIndex);
+  };
+
+  const handlePreviousResults = () => {
+    const prevIndex = currentIndex - 3;
+    setCurrentIndex(prevIndex < 0 ? 0 : prevIndex);
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -69,6 +95,7 @@ const Form = () => {
         console.error("Error fetching data:", error);
       }
     } else {
+      setNoResults(true);
       setShowMap(false);
       setZoomLevel(4);
       setMapCenter({ lat: 37.0902, lng: -95.7129 });
@@ -91,14 +118,14 @@ const Form = () => {
           type="text"
           className="form-control custom-input"
           id="city+state"
-          placeholder="Ponte Vedra, FL"
+          placeholder="Jacksonville, FL"
         />
         <hr style={{ color: "white" }} />
         <input
           type="number"
           className="form-control custom-input"
           id="zipCode"
-          placeholder="32081"
+          placeholder="32202"
           value={zipCode}
           onChange={(e) => handleZipCodeChange(e)}
         />
@@ -112,33 +139,52 @@ const Form = () => {
         <div className="row">
           <div className="col-lg-2">
             {showMap &&
-              headings.map((heading, index) => (
-                <div key={index} className="row-md-auto">
-                  <a
-                    href={
-                      validZipCodes.includes(zipCode) ? links[index] : undefined
-                    }
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`col col text-decoration-none ${
-                      validZipCodes.includes(zipCode) ? "" : "disabled"
-                    }`}
-                  >
-                    <div className="col">
-                      <div className="row">
-                        <h1 className="heading">{heading}</h1>
+              headings
+                .slice(currentIndex, currentIndex + 3)
+                .map((heading, index) => (
+                  <div key={index} className="row-md-auto">
+                    <a
+                      href={
+                        validZipCodes.includes(zipCode)
+                          ? links[index]
+                          : undefined
+                      }
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`col col text-decoration-none ${
+                        validZipCodes.includes(zipCode) ? "" : "disabled"
+                      }`}
+                    >
+                      <div className="col">
+                        <div className="row">
+                          <h1 className="heading">{heading}</h1>
+                        </div>
+                        <div className="row">
+                          <p className="subheading">{subheadings[index]}</p>
+                        </div>
+                        <hr />
                       </div>
-                      <div className="row">
-                        <p className="subheading">{subheadings[index]}</p>
-                      </div>
-                      <hr />
-                    </div>
-                  </a>
-                </div>
-              ))}
+                    </a>
+                  </div>
+                ))}
+            <div className="row justify-content-center mt-3">
+              {currentIndex > 0 && (
+                <button
+                  className="btn btn-primary mr-2"
+                  onClick={handlePreviousResults}
+                >
+                  Previous
+                </button>
+              )}
+              {currentIndex + 3 < headings.length && (
+                <button className="btn btn-primary" onClick={handleNextResults}>
+                  Next
+                </button>
+              )}
+            </div>
           </div>
           <div className="col map">
-            <LoadScript googleMapsApiKey="AIzaSyD01af9HvKCo6e45nDew9vK4MvZLU8b_Hw">
+            <LoadScript googleMapsApiKey="">
               {showMap && (
                 <GoogleMap
                   mapContainerStyle={mapStyles}
@@ -161,6 +207,11 @@ const Form = () => {
           </div>
         </div>
       </div>
+      {noResults && (
+        <div className="alert alert-danger mt-3" role="alert">
+          No results found for the entered zip code.
+        </div>
+      )}
     </div>
   );
 };

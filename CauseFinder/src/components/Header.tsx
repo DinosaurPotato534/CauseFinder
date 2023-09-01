@@ -23,6 +23,11 @@ function Header() {
               <p className="header">Search</p>
             </a>
           </div>
+          <div className="col-md-auto">
+            <a href="/list">
+              <p className="header">List a Non-Profit</p>
+            </a>
+          </div>
         </div>
       </div>
       <hr />
